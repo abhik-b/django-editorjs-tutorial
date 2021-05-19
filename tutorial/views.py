@@ -23,7 +23,13 @@ def home(request):
     form=PostForm()
     return render(request,'tutorial/index.html',{'form':form})
 
-
+def editpost(request,id):
+    instance = get_object_or_404(Post, id=id)
+    form = PostForm(request.POST or None, instance=instance)
+    if form.is_valid():
+        form.save()
+        return redirect('/{}/'.format(instance.id))
+    return render(request, 'tutorial/edit.html', {'form': form})
 
 def postdetail(request,id):
     post=Post.objects.get(id=id)

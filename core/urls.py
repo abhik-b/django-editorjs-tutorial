@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from tutorial.views import home,postdetail,uploadi,uploadf,upload_link_view
+from tutorial.views import home,postdetail,uploadi,uploadf,upload_link_view,editpost
 from django.views.decorators.csrf import csrf_exempt 
 
 from django.conf.urls.static import static
@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home ),
     path('<int:id>/',postdetail ),
+    path('editpost/<int:id>/',editpost ),
     path('uploadi/',csrf_exempt(uploadi) ),
     path('uploadf/',csrf_exempt(uploadf) ),
     path('linkfetching/',upload_link_view),
