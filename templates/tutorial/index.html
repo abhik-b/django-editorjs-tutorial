@@ -1,0 +1,11 @@
+{% for message in messages %}
+<h1>{{message}}</h1>
+{% endfor %}
+<form action="" method="POST">
+  {% csrf_token %}
+  <!--  -->
+  {{form.media}}
+  <!--  -->
+  {{form.as_p}}
+  <button>Submit</button>
+</form>
