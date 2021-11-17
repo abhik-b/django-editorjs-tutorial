@@ -1,11 +1,16 @@
 {% for message in messages %}
 <h1>{{message}}</h1>
 {% endfor %}
+<style>
+  div.form-control label {
+    border: 2px solid red;
+  }
+</style>
 <form action="" method="POST">
   {% csrf_token %}
   <!--  -->
   {{form.media}}
   <!--  -->
-  {{form.as_p}}
+  <div class="form-control">{{ form.as_p }}</div>
   <button>Submit</button>
 </form>

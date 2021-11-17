@@ -1,11 +1,12 @@
-{% for message in messages %}
+{% load static %} {% for message in messages %}
 <h1>{{message}}</h1>
 {% endfor %}
+
 <form action="" method="POST">
   {% csrf_token %}
   <!--  -->
   {{form.media}}
   <!--  -->
-  {{form.as_p}}
+  <div class="field-title">{{ form.as_p }}</div>
   <button>Submit</button>
 </form>
